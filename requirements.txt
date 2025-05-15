@@ -1,0 +1,20 @@
+# Librairies principales pour le modèle de reconnaissance d'émotions
+tensorflow>=2.9.0
+keras>=2.9.0
+numpy>=1.22.0
+matplotlib>=3.5.0
+scikit-learn>=1.0.0
+opencv-python>=4.5.5
+pandas>=1.4.0
+
+# Librairies pour la visualisation et l'analyse
+seaborn>=0.11.2
+pillow>=9.0.0
+
+# Librairies pour l'application web et le streaming
+flask>=2.0.0
+requests>=2.27.0
+
+# Librairies pour la gestion des données et le traitement d'images
+scipy>=1.8.0
+tqdm>=4.62.0
