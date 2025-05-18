@@ -86,7 +86,7 @@ Assure toi de donner les autorisation d'execution au fichier download_data.sh pu
 ./download_data.sh
 ```
 
-### 1. Entraînement du modèle
+### 2. Entraînement du modèle
 
 Pour entraîner le modèle CNN de détection d'émotions:
 
@@ -96,7 +96,7 @@ python scripts/train.py
 
 Le modèle entraîné sera sauvegardé dans `results/model/final_emotion_model.keras`.
 
-### 2. Évaluation du modèle
+### 3. Évaluation du modèle
 
 Pour évaluer les performances du modèle sur l'ensemble de test:
 
@@ -109,7 +109,7 @@ Sortie attendue:
 Accuracy on test set: 62% (une valeur superieur à 60 est requise)
 ```
 
-### 3. Détection d'émotions en temps réel
+### 4. Détection d'émotions en temps réel
 
 Pour lancer la détection d'émotions à partir du flux vidéo de la webcam:
 
@@ -130,7 +130,7 @@ Preprocessing ...
 ...
 ```
 
-### 4. Génération d'exemples adversariaux (fonctionnalité avancée)
+### 5. Génération d'exemples adversariaux (fonctionnalité avancée)
 
 Pour générer un exemple adversarial qui trompe le modèle:
 
