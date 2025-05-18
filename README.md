@@ -80,6 +80,12 @@ pip install -r requirements.txt
 
 ## Utilisation
 
+### 1. Telechargement du dataset 
+Assure toi de donner les autorisation d'execution au fichier download_data.sh puis:
+```bash
+./download_data.sh
+```
+
 ### 1. Entraînement du modèle
 
 Pour entraîner le modèle CNN de détection d'émotions:
