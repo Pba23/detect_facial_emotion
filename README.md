@@ -1,28 +1,28 @@
-# Projet de Détection d'Émotions Faciales
+# Facial Emotion Detection Project
 
-Ce projet implémente un système de détection d'émotions à partir d'expressions faciales en utilisant des réseaux de neurones convolutifs (CNN). Le système peut reconnaître 7 émotions différentes : Joie, Tristesse, Colère, Surprise, Peur, Dégoût et Neutre.
+This project implements a system for detecting emotions from facial expressions using Convolutional Neural Networks (CNN). The system can recognize 7 different emotions: Happiness, Sadness, Anger, Surprise, Fear, Disgust, and Neutral.
 
-## Table des matières
+## Table of Contents
 
-1. [Vue d'ensemble](#vue-densemble)
-2. [Structure du projet](#structure-du-projet)
+1. [Overview](#overview)
+2. [Project Structure](#project-structure)
 3. [Installation](#installation)
-4. [Utilisation](#utilisation)
-5. [Approche technique](#approche-technique)
-6. [Résultats](#résultats)
-7. [Fonctionnalités avancées](#fonctionnalités-avancées)
-8. [Améliorations possibles](#améliorations-possibles)
+4. [Usage](#usage)
+5. [Technical Approach](#technical-approach)
+6. [Results](#results)
+7. [Advanced Features](#advanced-features)
+8. [Possible Improvements](#possible-improvements)
 
-## Vue d'ensemble
+## Overview
 
-Ce projet a été développé dans le cadre d'une étude sur la reconnaissance d'émotions faciales en temps réel. Il combine des techniques de vision par ordinateur pour la détection de visages et des réseaux de neurones profonds pour la classification des émotions. Le système peut:
+This project was developed as part of a study on real-time facial emotion recognition. It combines computer vision techniques for face detection and deep neural networks for emotion classification. The system can:
 
-- Détecter un visage dans un flux vidéo
-- Prétraiter l'image du visage
-- Classifier l'émotion en temps réel
-- Générer des exemples adversariaux (fonctionnalité avancée)
+- Detect a face in a video stream
+- Preprocess the face image
+- Classify the emotion in real-time
+- Generate adversarial examples (advanced feature)
 
-## Structure du projet
+## Project Structure
 
 ```
 project/
@@ -57,18 +57,18 @@ project/
 
 ## Installation
 
-Pour installer et configurer le projet:
+To install and configure the project:
 
 ```bash
-# Cloner le dépôt
-git clone https://github.com/votre-username/emotion-detection.git
+# Clone the repository
+git clone https://github.com/your-username/emotion-detection.git
 cd emotion-detection
 
-# Installer les dépendances
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-### Prérequis
+### Prerequisites
 
 - Python 3.7+
 - TensorFlow 2.x
@@ -76,48 +76,48 @@ pip install -r requirements.txt
 - numpy
 - matplotlib
 - scikit-learn
-- seaborn (optionnel, pour les visualisations)
+- seaborn (optional, for visualizations)
 
-## Utilisation
+## Usage
 
-### 1. Telechargement du dataset 
-Assure toi de donner les autorisation d'execution au fichier download_data.sh puis:
+### 1. Downloading the dataset
+Make sure to give execution permissions to the download_data.sh file then:
 ```bash
 ./download_data.sh
 ```
 
-### 2. Entraînement du modèle
+### 2. Training the model
 
-Pour entraîner le modèle CNN de détection d'émotions:
+To train the CNN emotion detection model:
 
 ```bash
 python scripts/train.py
 ```
 
-Le modèle entraîné sera sauvegardé dans `results/model/final_emotion_model.keras`.
+The trained model will be saved in `results/model/final_emotion_model.keras`.
 
-### 3. Évaluation du modèle
+### 3. Model evaluation
 
-Pour évaluer les performances du modèle sur l'ensemble de test:
+To evaluate the model's performance on the test set:
 
 ```bash
 python scripts/predict.py
 ```
 
-Sortie attendue:
+Expected output:
 ```
-Accuracy on test set: 62% (une valeur superieur à 60 est requise)
+Accuracy on test set: 62% (a value higher than 60 is required)
 ```
 
-### 4. Détection d'émotions en temps réel
+### 4. Real-time emotion detection
 
-Pour lancer la détection d'émotions à partir du flux vidéo de la webcam:
+To launch emotion detection from the webcam video stream:
 
 ```bash
 python scripts/predict_live_stream.py
 ```
 
-Sortie attendue:
+Expected output:
 ```
 Reading video stream ...
 
@@ -130,72 +130,72 @@ Preprocessing ...
 ...
 ```
 
-### 5. Génération d'exemples adversariaux (fonctionnalité avancée)
+### 5. Generating adversarial examples (advanced feature)
 
-Pour générer un exemple adversarial qui trompe le modèle:
+To generate an adversarial example that fools the model:
 
 ```bash
 python scripts/hack_cnn.py
 ```
 
-Les résultats seront sauvegardés dans `results/adversarial/`.
+The results will be saved in `results/adversarial/`.
 
-## Approche technique
+## Technical Approach
 
-### Prétraitement des données
+### Data Preprocessing
 
-1. Les images de visages sont redimensionnées à 48x48 pixels
-2. Conversion en niveaux de gris
-3. Normalisation des valeurs de pixels entre 0 et 1
-4. Utilisation de OpenCV pour la détection de visages dans le flux vidéo
-5. Augmentation de données pendant l'entraînement pour améliorer la généralisation
+1. Face images are resized to 48x48 pixels
+2. Conversion to grayscale
+3. Normalization of pixel values between 0 and 1
+4. Using OpenCV for face detection in the video stream
+5. Data augmentation during training to improve generalization
 
-### Architecture du modèle CNN
+### CNN Model Architecture
 
-Notre architecture CNN comporte:
+Our CNN architecture includes:
 
-- 3 blocs de convolution (avec BatchNormalization et MaxPooling)
-- Couches de Dropout pour réduire le surapprentissage
-- Couches Dense pour la classification finale
-- Fonction d'activation softmax en sortie pour la prédiction des 7 classes d'émotions
+- 3 convolution blocks (with BatchNormalization and MaxPooling)
+- Dropout layers to reduce overfitting
+- Dense layers for final classification
+- Softmax activation function at the output for predicting the 7 emotion classes
 
-L'architecture complète est détaillée dans `results/model/final_emotion_model_arch.txt`.
+The complete architecture is detailed in `results/model/final_emotion_model_arch.txt`.
 
-### Entraînement
+### Training
 
-- Optimiseur: Adam avec learning rate adaptatif
-- Fonction de perte: Categorical Crossentropy
-- Early stopping pour éviter le surapprentissage
-- Monitoring avec TensorBoard
-- Support du GPU pour accélérer l'entraînement
+- Optimizer: Adam with adaptive learning rate
+- Loss function: Categorical Crossentropy
+- Early stopping to prevent overfitting
+- Monitoring with TensorBoard
+- GPU support to accelerate training
 
-## Résultats
+## Results
 
-![Matrice de confusion disponible](results/model/confusion_matrix.png)
-![Courbes d'apprentissage](results/model/learning_curves.png)
+![Confusion Matrix Available](results/model/confusion_matrix.png)
+![Learning Curves](results/model/learning_curves.png)
 ![TensorBoard Screenshot](results/model/tensorboard_screenshot.png)
 
-### Distribution des prédictions par classe
+### Distribution of Predictions by Class
 
-Le modèle présente de bonnes performances sur les émotions distinctives comme la joie et la surprise, mais rencontre plus de difficultés pour distinguer la peur et la tristesse.
+The model performs well on distinctive emotions like happiness and surprise, but has more difficulty distinguishing between fear and sadness.
 
-## Fonctionnalités avancées
+## Advanced Features
 
-### Attaque adversariale
+### Adversarial Attack
 
-Le script `hack_cnn.py` implémente une technique d'attaque adversariale qui démontre une vulnérabilité intéressante des réseaux de neurones. Il permet de:
+The `hack_cnn.py` script implements an adversarial attack technique that demonstrates an interesting vulnerability of neural networks. It allows:
 
-1. Sélectionner une image classifiée comme "Happy" avec une confiance élevée (>90%)
-2. Modifier subtilement les pixels de l'image pour que le modèle la classifie comme "Sad"
-3. Les modifications sont imperceptibles à l'œil humain mais suffisantes pour tromper le modèle
+1. Selecting an image classified as "Happy" with high confidence (>90%)
+2. Subtly modifying the pixels of the image so that the model classifies it as "Sad"
+3. The modifications are imperceptible to the human eye but sufficient to fool the model
 
-Cette fonctionnalité illustre l'importance de la robustesse des modèles de deep learning face aux attaques adversariales.
-![Attaque de l'adversaire](results/adversarial/adversarial_attack.png)
+This feature illustrates the importance of robustness in deep learning models against adversarial attacks.
+![Adversarial Attack](results/adversarial/adversarial_attack.png)
 
-## Améliorations possibles
+## Possible Improvements
 
-- Utilisation de modèles pré-entraînés (transfer learning) pour améliorer la précision
-- Implémentation de techniques d'attention pour mieux se concentrer sur les régions faciales expressives
-- Déploiement sur des appareils mobiles (TensorFlow Lite)
-- Intégration avec d'autres modalités (audio) pour une reconnaissance multimodale des émotions
-- Amélioration de la robustesse contre les attaques adversariales
+- Using pre-trained models (transfer learning) to improve accuracy
+- Implementation of attention techniques to better focus on expressive facial regions
+- Deployment on mobile devices (TensorFlow Lite)
+- Integration with other modalities (audio) for multimodal emotion recognition
+- Improving robustness against adversarial attacks
