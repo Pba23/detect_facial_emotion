@@ -94,7 +94,7 @@ To train the CNN emotion detection model:
 python scripts/train.py
 ```
 
-The trained model will be saved in `results/model/final_emotion_model.keras`.
+The trained model will be saved in `final_emotion_model.keras`.
 
 ### 3. Model evaluation
 
@@ -172,8 +172,8 @@ The complete architecture is detailed in `results/model/final_emotion_model_arch
 ## Results
 
 ![Confusion Matrix Available](confusion_matrix.png)
-![Learning Curves](results/model/learning_curves.png)
-![TensorBoard Screenshot](results/model/tensorboard_screenshot.png)
+![Learning Curves](learning_curves.png)
+![TensorBoard Screenshot](tensorboard_screenshot.png)
 
 ### Distribution of Predictions by Class
 
