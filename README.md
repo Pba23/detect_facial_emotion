@@ -171,7 +171,7 @@ The complete architecture is detailed in `results/model/final_emotion_model_arch
 
 ## Results
 
-![Confusion Matrix Available](results/model/confusion_matrix.png)
+![Confusion Matrix Available](confusion_matrix.png)
 ![Learning Curves](results/model/learning_curves.png)
 ![TensorBoard Screenshot](results/model/tensorboard_screenshot.png)
 
