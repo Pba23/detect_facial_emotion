@@ -190,7 +190,7 @@ The `hack_cnn.py` script implements an adversarial attack technique that demonst
 3. The modifications are imperceptible to the human eye but sufficient to fool the model
 
 This feature illustrates the importance of robustness in deep learning models against adversarial attacks.
-![Adversarial Attack](results/adversarial/adversarial_attack.png)
+![Adversarial Attack](adversarial_attack.png)
 
 ## Possible Improvements
 
